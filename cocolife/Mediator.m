@@ -14,6 +14,7 @@
 @implementation Mediator
 
 -(void) initialize{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     loading = NO;
     [ImageCache create];
     [self createController];

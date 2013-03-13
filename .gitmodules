@@ -1,0 +1,15 @@
+[submodule "cocolife/lib/jp.makesmile"]
+	path = cocolife/lib/jp.makesmile
+	url = https://github.com/makesmile/jp.makesmile.git
+[submodule "cocolife/lib/UAModalPanel"]
+	path = cocolife/lib/UAModalPanel
+	url = https://github.com/coneybeare/UAModalPanel.git
+[submodule "cocolife/lib/fmdb"]
+	path = cocolife/lib/fmdb
+	url = https://github.com/ccgus/fmdb.git
+[submodule "cocolife/lib/SMPageControl"]
+	path = cocolife/lib/SMPageControl
+	url = https://github.com/Spaceman-Labs/SMPageControl.git
+[submodule "cocolife/lib/JSONKit"]
+	path = cocolife/lib/JSONKit
+	url = https://github.com/johnezang/JSONKit.git

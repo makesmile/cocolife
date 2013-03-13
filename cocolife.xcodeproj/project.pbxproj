@@ -639,7 +639,6 @@
 				7B6B1D5E16EEC3BB004089F4 /* SystemConfiguration.framework */,
 				7B6B1D5C16EEC39A004089F4 /* CFNetwork.framework */,
 				7B6B1D5A16EEC38D004089F4 /* MobileCoreServices.framework */,
-				7B6B1CC116EEC2DD004089F4 /* lib */,
 				7B6B1C3A16EEC23F004089F4 /* cocolife */,
 				7B6B1C3316EEC23F004089F4 /* Frameworks */,
 				7B6B1C3216EEC23F004089F4 /* Products */,
@@ -693,14 +692,6 @@
 				7B6B1C4216EEC23F004089F4 /* cocolife-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7B6B1CC116EEC2DD004089F4 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = lib;
-			path = cocolife/lib;
 			sourceTree = "<group>";
 		};
 		7B6B1D6D16EEC667004089F4 /* commands */ = {

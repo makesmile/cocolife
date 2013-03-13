@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#define GOOGLE_MAP_API_KEY @"AIzaSyC87xd9UDifCPhLLB3p20TPgHa0S2Xw54g"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,7 +18,21 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [GMSServices provideAPIKey:GOOGLE_MAP_API_KEY];
+    mediator = [[Mediator alloc] initWithWindow:self.window];
+    
     return YES;
+}
+
+-(void) applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    [mediator memoryWarning];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [mediator becomeActive];
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -34,11 +50,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

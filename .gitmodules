@@ -10,6 +10,6 @@
 [submodule "cocolife/lib/JSONKit"]
 	path = cocolife/lib/JSONKit
 	url = https://github.com/johnezang/JSONKit.git
-[submodule "cocolife/lib/jp.makesmile"]
-	path = cocolife/lib/jp.makesmile
+[submodule "cocolife/lib/jp_makesmile"]
+	path = cocolife/lib/jp_makesmile
 	url = https://github.com/makesmile/jp.makesmile.git

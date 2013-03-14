@@ -1,6 +1,3 @@
-[submodule "cocolife/lib/jp.makesmile"]
-	path = cocolife/lib/jp.makesmile
-	url = https://github.com/makesmile/jp.makesmile.git
 [submodule "cocolife/lib/UAModalPanel"]
 	path = cocolife/lib/UAModalPanel
 	url = https://github.com/coneybeare/UAModalPanel.git
@@ -13,3 +10,6 @@
 [submodule "cocolife/lib/JSONKit"]
 	path = cocolife/lib/JSONKit
 	url = https://github.com/johnezang/JSONKit.git
+[submodule "cocolife/lib/jp.makesmile"]
+	path = cocolife/lib/jp.makesmile
+	url = https://github.com/makesmile/jp.makesmile.git

@@ -37,6 +37,7 @@
 		7B6B1D8F16EEC8E4004089F4 /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B1D7D16EEC779004089F4 /* Info.m */; };
 		7B6B1D9016EEC8E4004089F4 /* Notify.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B1D7F16EEC779004089F4 /* Notify.m */; };
 		7B6B1D9316EECEA6004089F4 /* ModelDbHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B1D9216EECEA6004089F4 /* ModelDbHelper.m */; };
+		7BB6460B16F153EF00CD6C43 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BB6460A16F153EF00CD6C43 /* GoogleMaps.bundle */; };
 		7BCB5D1516F0C50100A2D8D7 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0116F0C50100A2D8D7 /* UIView+JMNoise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7BCB5D1616F0C50100A2D8D7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0316F0C50100A2D8D7 /* close.png */; };
 		7BCB5D1716F0C50100A2D8D7 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0416F0C50100A2D8D7 /* close@2x.png */; };
@@ -85,7 +86,6 @@
 		7BD3D30A16EF50A70073970C /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD3D30916EF50A60073970C /* libz.1.2.5.dylib */; };
 		7BD3D30C16EF50AE0073970C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD3D30B16EF50AD0073970C /* OpenGLES.framework */; };
 		7BD3D30E16EF50B40073970C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD3D30D16EF50B40073970C /* QuartzCore.framework */; };
-		7BD3D31016EF525C0073970C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BD3D30F16EF525B0073970C /* GoogleMaps.bundle */; };
 		7BD3D31316EF6A850073970C /* tabShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BD3D31216EF6A840073970C /* tabShadow@2x.png */; };
 		7BD3D31616EF74E10073970C /* MapPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3D31516EF74B80073970C /* MapPaperView.m */; };
 		7BD3D31916EF79760073970C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3D31816EF79500073970C /* DetailViewController.m */; };
@@ -294,6 +294,7 @@
 		7B6B1D8A16EEC86E004089F4 /* NotifyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyList.m; sourceTree = "<group>"; };
 		7B6B1D9116EECEA6004089F4 /* ModelDbHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelDbHelper.h; sourceTree = "<group>"; };
 		7B6B1D9216EECEA6004089F4 /* ModelDbHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelDbHelper.m; sourceTree = "<group>"; };
+		7BB6460A16F153EF00CD6C43 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		7BCB5D0016F0C50100A2D8D7 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
 		7BCB5D0116F0C50100A2D8D7 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
 		7BCB5D0316F0C50100A2D8D7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
@@ -376,7 +377,6 @@
 		7BD3D30916EF50A60073970C /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		7BD3D30B16EF50AD0073970C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		7BD3D30D16EF50B40073970C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7BD3D30F16EF525B0073970C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../libs/iphone/GoogleMaps-iOS-1.1.1/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		7BD3D31116EF5A500073970C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7BD3D31216EF6A840073970C /* tabShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabShadow@2x.png"; sourceTree = "<group>"; };
 		7BD3D31416EF74B70073970C /* MapPaperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPaperView.h; sourceTree = "<group>"; };
@@ -615,8 +615,8 @@
 		7B6B1C2816EEC23F004089F4 = {
 			isa = PBXGroup;
 			children = (
+				7BB6460916F153EF00CD6C43 /* Resources */,
 				7B07869616F0092F00E3C801 /* Social.framework */,
-				7BD3D30F16EF525B0073970C /* GoogleMaps.bundle */,
 				7BD3D30D16EF50B40073970C /* QuartzCore.framework */,
 				7BD3D30B16EF50AD0073970C /* OpenGLES.framework */,
 				7BD3D30916EF50A60073970C /* libz.1.2.5.dylib */,
@@ -803,6 +803,15 @@
 				7B6B1D7F16EEC779004089F4 /* Notify.m */,
 			);
 			path = row;
+			sourceTree = "<group>";
+		};
+		7BB6460916F153EF00CD6C43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7BB6460A16F153EF00CD6C43 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			path = "../../../../../libs/iphone/GoogleMaps-iOS-1.1.1/GoogleMaps.framework/Versions/A/Resources";
 			sourceTree = "<group>";
 		};
 		7BCB5C1916F0BCBC00A2D8D7 /* lib */ = {
@@ -1269,7 +1278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B6B1C3F16EEC23F004089F4 /* InfoPlist.strings in Resources */,
-				7BD3D31016EF525C0073970C /* GoogleMaps.bundle in Resources */,
 				7B6B1D6916EEC5DC004089F4 /* cocolife.db in Resources */,
 				7BF643E016EEE96C0036CBBE /* arrowButton@2x.png in Resources */,
 				7BF643E116EEE96C0036CBBE /* bar01@2x.png in Resources */,
@@ -1397,6 +1405,7 @@
 				7BCB5D3D16F0C72000A2D8D7 /* README.md in Resources */,
 				7BCB5D5616F0C88F00A2D8D7 /* readme.txt in Resources */,
 				7BDC7E4316F1525100ECB0F2 /* README.md in Resources */,
+				7BB6460B16F153EF00CD6C43 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

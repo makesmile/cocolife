@@ -132,13 +132,12 @@
     }else{
         toY = -37.0f;
     }
-    [[[UIAnimationCommand alloc] initWithDuration:0.1f delay:0 options:UIViewAnimationOptionCurveEaseIn animationBlock:^{
+    
+    [UIView animateWithDuration:0.1f animations:^{
         CGRect iconFrame = newIcon.frame;
         iconFrame.origin.y = toY;
         newIcon.frame = iconFrame;
-    } completeBlock:^(BOOL finished) {
-        
-    }] execute:nil];
+    }];
 }
 
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView{

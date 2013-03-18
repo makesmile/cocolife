@@ -37,11 +37,6 @@
     
     // TODO 新しければ
     newIconView.hidden = /*!([coco.created intValue] > 1339047250)*/ ![coco isNew];
-    if(coco.thumbImage != nil){
-        
-    }else{
-        
-    }
 }
 
 

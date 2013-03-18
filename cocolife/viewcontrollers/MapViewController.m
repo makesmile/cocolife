@@ -28,19 +28,34 @@
     [locationManger setDelegate:self];
     [locationManger setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     locationManger.distanceFilter = 20.0;
+    [locationManger startUpdatingLocation];
 }
+
 - (void)locationManager:(CLLocationManager *)manager
 didUpdateToLocation:(CLLocation *)newLocation
 fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0){
     [mapView_ animateToLocation:newLocation.coordinate];
+    //    [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude
+    //                                                                  longitude:mapView_.myLocation.coordinate.longitude
+    //                                                                       zoom:mapView_.camera.zoom]];
+    [locationManger stopUpdatingLocation];
 }
 
 -(void) startLocation{
-    [locationManger startUpdatingLocation];
+    NSLog(@"startLocation");
+    [mapView_ addObserver:self
+               forKeyPath:@"myLocation"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
 }
 
 -(void) stopLocation{
-    [locationManger stopUpdatingLocation];
+    NSLog(@"stopLocation");
+    @try{
+        [mapView_ removeObserver:self forKeyPath:@"myLocation" context:nil];
+    }@catch (NSException* e) {
+        NSLog(@"%@", e);
+    }
 }
 
 -(void) setNaviTitle{
@@ -51,7 +66,7 @@ fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6
 -(void) setMapView{
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:35.664035
                                                             longitude:139.698212
-                                                                 zoom:12];
+                                                                 zoom:13];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.myLocationEnabled = YES;
     mapView_.frame = [self viewFrame];
@@ -136,11 +151,11 @@ fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6
 
 - (void)mapView:(GMSMapView *)mapView
 didChangeCameraPosition:(GMSCameraPosition *)position{
-//    if(!firstLoad) return;
-//    firstLoad = NO;
-//    
-//    CLLocationCoordinate2D homeCoordinate = [self homeLocation].coordinate;
-//    [mapView_ animateToLocation:homeCoordinate];
+    //    if(!firstLoad) return;
+    //    firstLoad = NO;
+    //
+    //    CLLocationCoordinate2D homeCoordinate = [self homeLocation].coordinate;
+    //    [mapView_ animateToLocation:homeCoordinate];
 }
 
 - (void)mapView:(GMSMapView *)mapView
@@ -151,7 +166,7 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
 
 //- (void)mapView:(GMSMapView *)mapView
 //didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate{
-//    
+//
 //}
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(id<GMSMarker>)marker{
@@ -168,12 +183,24 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
     return YES;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"observeValueForKeyPath:%@", keyPath);
+    if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
+    {
+        // TODO current から距離とってある程度以上離れて更新
+//        [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude
+//                                                                      longitude:mapView_.myLocation.coordinate.longitude
+//                                                                           zoom:mapView_.camera.zoom]];
+    }
+}
+
 /**
  * Called after a marker's info window has been tapped.
  */
 //- (void)mapView:(GMSMapView *)mapView
 //didTapInfoWindowOfMarker:(id<GMSMarker>)marker{
-//    
+//
 //}
 
 /**
@@ -190,7 +217,7 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
  */
 //- (UIView *)mapView:(GMSMapView *)mapView
 //   markerInfoWindow:(id<GMSMarker>)marker{
-//    
+//
 //}
 
 @end

@@ -136,10 +136,10 @@ static ModelDbHelper* instance;
 }
 
 -(id) assignModels:(InfoList*)infoList_
-           eventList:(EventList*)eventList_
-          notifyList:(NotifyList*) notifyList_
-            cocoList:(CocoList*)cocoList_
-         favoritList:(CocoList*)favoritList_{
+         eventList:(EventList*)eventList_
+        notifyList:(NotifyList*) notifyList_
+          cocoList:(CocoList*)cocoList_
+       favoritList:(CocoList*)favoritList_{
     infoList = infoList_;
     eventList = eventList_;
     notifyList = notifyList_;
@@ -165,11 +165,15 @@ static ModelDbHelper* instance;
     [FMBaseDb open];
     FMResultSet* results = [db executeQuery:sql];
     [FMBaseDb showError];
-    [infoList clear];
+    //    [infoList clear];
+    int i = 0;
     while([results next]){
-        Info* info = [[Info alloc] initWithResultSet:results];
-        [infoList add:info];
+        Info* info = (Info*)[[Info alloc] initWithResultSet:results];
+        //        [infoList add:info];
+        [infoList replace:info at:i];
+        i++;
     }
+    [infoList removeToTail:i];
     [FMBaseDb close];
 }
 
@@ -188,29 +192,36 @@ static ModelDbHelper* instance;
     "ORDER BY "
     "    start_time ASC "
     "";
-    [eventList clear];
+    //    [eventList clear];
     FMDatabase* db = [FMBaseDb getDb];
     [FMBaseDb open];
     FMResultSet* resultSet = [db executeQuery:query, now];
+    int i = 0;
     while([resultSet next]){
         Event* event = [[Event alloc] initWithResultSet:resultSet];
-        [eventList add:event];
+        [eventList replace:event at:i];
+        //        [eventList add:event];
+        i++;
     }
+    [eventList removeToTail:i];
     [FMBaseDb close];
 }
 
 -(void) reloadNotifyList{
-    [notifyList clear];
+    //    [notifyList clear];
     
     FMDatabase* db = [FMBaseDb getDb];
     [FMBaseDb open];
     
     NSString* sql = @"SELECT notify.*, co.name AS shopName FROM notify INNER JOIN co ON notify.co_id = co.id ORDER BY created DESC";
     FMResultSet* resultSet = [db executeQuery:sql];
+    int i = 0;
     while([resultSet next]){
         Notify* notify = [[Notify alloc] initWithResultSet:resultSet];
-        [notifyList add:notify];
+        [notifyList replace:notify at:i];
+        i++;
     }
+    [notifyList removeToTail:i];
     
     [FMBaseDb close];
 }
@@ -226,13 +237,16 @@ static ModelDbHelper* instance;
                        "ORDER BY "
                        "    new DESC, created DESC "
                        ""];
-    [cocoList clear];
+    //    [cocoList clear];
     FMDatabase* db = [FMBaseDb getDb];
     [FMBaseDb open];
     FMResultSet* resultSet = [db executeQuery:query];
+    int i = 0;
     while([resultSet next]){
         Coco* coco = [[Coco alloc] initWithResultSet:resultSet];
-        [cocoList add:coco];
+        //        [cocoList add:coco];
+        [cocoList replace:coco at:i];
+        i++;
     }
     [self mergeDetailList:cocoList];
     
@@ -241,7 +255,7 @@ static ModelDbHelper* instance;
 
 -(void) mergeDetailList:(CocoList*)cocoList_{
     for(int i=0,max=[cocoList_ count];i<max;i++){
-        Coco* coco = [cocoList_ get:i];
+        Coco* coco = (Coco*)[cocoList_ get:i];
         [self mergeDetailListRow:coco];
     }
 }
@@ -285,11 +299,15 @@ static ModelDbHelper* instance;
     [FMBaseDb open];
     FMResultSet* resultSet = [db executeQuery:query];
     [FMBaseDb showError];
-    [favoritList clear];
+    //    [favoritList clear];
+    int i = 0;
     while([resultSet next]){
         Coco* coco = [[Coco alloc] initWithResultSet:resultSet];
-        [favoritList add:coco];
+        //        [favoritList add:coco];
+        [favoritList replace:coco at:i];
+        i++;
     }
+    [favoritList removeToTail:i];
     [FMBaseDb close];
 }
 

@@ -13,7 +13,7 @@
 
 @interface MapViewController : AbstractCocoViewController<
 GMSMapViewDelegate
-, CLLocationManagerDelegate
+//, CLLocationManagerDelegate
 >{
     // models
     CocoList* cocoList;

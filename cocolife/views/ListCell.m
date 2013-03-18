@@ -60,7 +60,7 @@
     [super update];
     NSString* requestUrl = [NSString stringWithFormat:@"%@%@", IMAGE_URL, coco.thumbImage];
     [ImageCache loadImage:requestUrl callback:^(UIImage *image, NSString *key) {
-        if(![key isEqualToString:requestUrl]){
+        if(![key isEqualToString:[NSString stringWithFormat:@"%@%@", IMAGE_URL, coco.thumbImage]]){
             return ;
         }
         image = [Utils scaledImageWithImage:image]; // scale

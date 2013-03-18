@@ -128,7 +128,7 @@
             NSString* imageUrl = [NSString stringWithFormat:@"%@%@", IMAGE_URL, coco.image];
             [imageView setImage:nil forState:UIControlStateNormal];
             [ImageCache loadImage:imageUrl callback:^(UIImage *image, NSString* key) {
-                if(![imageUrl isEqualToString:key]){
+                if(![[NSString stringWithFormat:@"%@%@", IMAGE_URL, coco.image] isEqualToString:key]){
                     return;
                 }
                 image = [Utils getResizedImage:image width:260];

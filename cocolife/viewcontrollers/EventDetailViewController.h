@@ -7,9 +7,18 @@
 //
 
 #import "AbstractCocoViewController.h"
-#import "Event.h"
+
+// view
 #import "CocoH1Label.h"
 #import "CocoTextView.h"
+#import "EventFeedView.h"
+
+// models
+#import "Event.h"
+#import "FbEventUserList.h"
+
+// command
+#import "FbEventFeedComand.h"
 
 @interface EventDetailViewController : AbstractCocoViewController{
     
@@ -18,8 +27,6 @@
     
     // views
     UIImageView* paperTop;
-    UIImageView* paperMiddle;
-    UIImageView* paperBottom;
     UIButton* twButton;
     UIButton* fbButton;
     UILabel* naviTitleLabel;
@@ -33,11 +40,18 @@
     UILabel* accessLabel;
     UIImageView* calenderIcon;
     UIImageView* mapIcon;
+    UIImageView* lineView;
+    UIImageView* eventLineView;
+    CocoH1Label* feedTitleLabel;
     
     CocoTextView* descriptionView;
     UIButton* toKeiroButton;
     UIButton* openButton;
     UIButton* toShopButton;
+    EventFeedView* eventFeedView;
+    UIActivityIndicatorView* indicator;
+    
+    float originalHeight;
 }
 
 -(void) setModel:(Event*)event_;

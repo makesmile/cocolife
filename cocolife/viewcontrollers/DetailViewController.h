@@ -7,12 +7,15 @@
 //
 
 #import "AbstractCocoViewController.h"
-#import "Coco.h"
 #import "Utils.h"
 #import "ImageCache.h"
 #import "ScrollImageViewer.h"
 #import "CocoTextView.h"
 #import "CocoH1Label.h"
+
+// model
+#import "Coco.h"
+
 
 // venders
 #import "UAModalPanel.h"

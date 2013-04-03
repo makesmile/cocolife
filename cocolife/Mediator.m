@@ -10,6 +10,8 @@
 #define UPDATE_API @"http://api.makesmile.jp/cocosearch/update.php"
 #define SECRET_KEY @"q17jc6"
 #define CONTACT_URL @"http://api.makesmile.jp/cocosearch/postContact.php"
+#define FB_APP_ID @"371244296272295"
+#define GA_TRACK_CODE @"UA-37134478-1"
 
 @implementation Mediator
 
@@ -23,9 +25,21 @@
     [self assignModel];
     [self updateViews];
     [self setViews];
+    [self startGaTraking];
+}
+
+-(void) becomeActive{
+    [self loadUpdateApi];
 }
 
 // ▼ initialize =================================
+
+-(void) startGaTraking{
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    tracker = [[GAI sharedInstance] trackerWithTrackingId:GA_TRACK_CODE];
+}
 
 -(void) createController{
     loadingViewController = [[LoadingViewController alloc] init];
@@ -218,7 +232,7 @@
     
     // 初期かエラー
     loadingViewController.onReload = ^{
-        [self showToast:@"通信エラー\nしばらく時間をおいてから再度お試し下さい"];
+//        [self showToast:@"通信エラー\nしばらく時間をおいてから再度お試し下さい"];
         [self loadUpdateApi];
     };
 }
@@ -285,6 +299,20 @@
     [tabBarController.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     [tabBarController setViewControllers:viewControllers];
     tabBarController.onChangeTab = ^(int index){
+        switch(index){
+            case 0:
+                [tracker trackView:@"top"];
+                break;
+            case 1:
+                [tracker trackView:@"map"];
+                break;
+            case 2:
+                [tracker trackView:@"list"];
+                break;
+            case 3:
+                [tracker trackView:@"contact"];
+                break;
+        }
         if(index == 1){
             [mapViewController startLocation];
         }else{
@@ -309,16 +337,20 @@
 
 // ▲ initialize ==================================
 
--(void) becomeActive{
-    [self loadUpdateApi];
-}
-
 -(void) loadUpdateApi{
     if(loading) return;
     loading = YES;
     int lastupdated = [[userDefaults objectForKey:@"lastupdated"] intValue];
+    
+    // 更新し直す
+    if([userDefaults integerForKey:@"buildVersion"] != 2 && lastupdated != 0){
+        lastupdated = 1;
+        [userDefaults setInteger:2 forKey:@"buildVersion"];
+        [userDefaults synchronize];
+    }
+    
     NSString* requestUrl = [NSString stringWithFormat:@"%@?lastupdated=%d", UPDATE_API, lastupdated];
-//    NSLog(@"requestUrl:%@", requestUrl);
+    NSLog(@"requestUrl:%@", requestUrl);
     
     loadCommand = [[URLLoadCommand alloc] initWithUrl:requestUrl];
     [loadCommand setOnError:^(URLLoadOperation *operation, NSError *error) {

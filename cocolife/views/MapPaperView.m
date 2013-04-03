@@ -124,6 +124,8 @@
     nameLabel.text = coco.name;
     stationLabel.text = coco.station;
     descriptionLabel.text = coco.excerpt;
+    imageView.image = nil;
+    if(coco.thumbImage == nil) return;
     [self loadImage:coco.thumbImage];
 }
 

@@ -72,14 +72,11 @@
 }
 
 -(void) setBg{
-    paperTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detailPaperTop"]];
-    paperMiddle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detailPaperMiddle"]];
-    paperBottom = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detailPaperBottom"]];
+    paperTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detailBgAll"]];
+    paperTop.contentStretch = CGRectMake(0, 0.5f, 1.0f, 0.1f);
     
     // display
     [sv addSubview:paperTop];
-    [sv addSubview:paperMiddle];
-    [sv addSubview:paperBottom];
 }
 
 -(void) setContents{
@@ -160,6 +157,20 @@
     [toShopButton setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
     toShopButton.titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
     
+    eventLineView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detailLine"]];
+    
+    feedTitleLabel = [[CocoH1Label alloc] init];
+    [feedTitleLabel setText:@"イベント参加者"];
+    
+    // eventFeed
+    eventFeedView = [[EventFeedView alloc] init];
+    eventFeedView.openTalk = ^(float height){
+        float toHeight = originalHeight;
+        toHeight += height - 20;
+        sv.contentSize = CGSizeMake(320, toHeight);
+        paperTop.frame = CGRectMake(3.5f, 10, 313, toHeight-20);
+    };
+    
     [sv addSubview:eventTitleLabel];
     [sv addSubview:imageBgView];
     [sv addSubview:imageView];
@@ -173,26 +184,25 @@
     [sv addSubview:descriptionView];
     [sv addSubview:toKeiroButton];
     [sv addSubview:openButton];
+    [sv addSubview:eventLineView];
+    [sv addSubview:feedTitleLabel];
+    [sv addSubview:eventFeedView];
 }
 
 -(void) onTw{
     if(onTweet)
         onTweet(self, event.name, event.link);
-//    [delegate onTweetEvent:event];
 }
 
 -(void) onFb{
     if(onFacebook)
         onFacebook(self, event.name, event.link);
-//    [delegate onFacebookEvent:event];
 }
 
 -(void) toKeiro{
     if(onKeiro){
         onKeiro(self, event.coId);
     }
-//    Coco* coco = [Db createCoModel:event.coId];
-//    [mediator openMap:coco viewController:self];
 }
 
 -(void) openBrowser{
@@ -209,7 +219,7 @@
 
 -(void) updatePositions{
     // スクロールリセット
-    sv.contentOffset = CGPointMake(0, 0);
+//    sv.contentOffset = CGPointMake(0, 0);
     
     shopNameLabel.frame = CGRectMake(130, 57, 160, 20);
     calenderIcon.frame = CGRectMake(127.5f, 80, 19, 15.5f);
@@ -236,12 +246,41 @@
     openButton.frame = CGRectMake(148, currentY, 141.5, 30.5f);
     currentY += openButton.frame.size.height;
     
+    currentY += 15;
+    
+    eventLineView.frame = CGRectMake(20, currentY, 280, 0.5f);
+    currentY += 10;
+    
+    feedTitleLabel.frame = CGRectMake(29, currentY, 280, 15);
+    currentY += 15;
+    
+    if(!eventFeedView.hidden){
+        if(indicator != nil){
+            [indicator removeFromSuperview];
+        }
+        CGRect feedViewFrame = eventFeedView.frame;
+        feedViewFrame.origin.y = currentY;
+        eventFeedView.frame = feedViewFrame;
+        eventFeedView.originalFrame = feedViewFrame;
+        currentY += feedViewFrame.size.height;
+        currentY += 25;
+        
+        originalHeight = currentY+40;
+    }else{
+        if(indicator != nil){
+            [indicator removeFromSuperview];
+        }
+        indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        indicator.frame = CGRectMake(20, currentY, 280, 60);
+        [sv addSubview:indicator];
+        [indicator startAnimating];
+        currentY += 80;
+    }
+    
     currentY += 0;
     // 背景調整
-    paperTop.frame = CGRectMake(3.5f, 10, 313, 44.5f);
-    paperMiddle.frame = CGRectMake(3.5f, 10+44.5f, 313, currentY-10-44.5f);
-    paperBottom.frame = CGRectMake(3.5f, currentY, 313, 30.5f);
-    sv.contentSize = CGSizeMake(320, currentY+40);
+    paperTop.frame = CGRectMake(3.5f, 10, 313, currentY);
+    sv.contentSize = CGSizeMake(320, currentY+10);
     
     NSString* requestUrl = event.image;
     imageView.image = nil;
@@ -293,15 +332,36 @@
     [toKeiroButton setTitle:[NSString stringWithFormat:@"   %@への経路        ", event.owner] forState:UIControlStateNormal];
 }
 
+-(void) loadFbEventFeed{
+    [eventFeedView reset];
+    NSLog(@"%@", event.venderId);
+    FbEventFeedComand* command = [[FbEventFeedComand alloc] initWithEventId:event.venderId];
+    command.onLoad = ^(FbEventUserList* userList){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [eventFeedView setModel:userList];
+            [eventFeedView update];
+            eventFeedView.hidden = NO;
+            [self updatePositions];
+            [eventFeedView show];
+        });
+    };
+    command.onFail = ^(NSError* error){
+        NSLog(@"%@", error.debugDescription);
+    };
+    
+    [command execute:nil];
+}
+
 // ▼ public ===========================
 
 -(void) setModel:(Event*)event_{
     event = event_;
-    
+    [eventFeedView hide];
 }
 
 -(void) update{
     sv.contentOffset = CGPointMake(0, 0);
+    [self loadFbEventFeed];
     [self updateParams];
     [self updatePositions];
 }

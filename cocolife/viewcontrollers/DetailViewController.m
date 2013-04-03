@@ -139,13 +139,21 @@
 }
 
 -(void) onTw{
+    NSString* str = [NSString stringWithFormat:@"%@\n%@", coco.name, coco.excerpt];
+    if([str length] > 110){
+        str = [str substringToIndex:110];
+    }
     if(onTweet)
-        onTweet(self, [[NSString stringWithFormat:@"%@\n%@", coco.name, coco.excerpt]  substringToIndex:110], coco.url);
+        onTweet(self, str, coco.url);
 }
 
 -(void) onFb{
+    NSString* str = [NSString stringWithFormat:@"%@\n%@", coco.name, coco.excerpt];
+    if([str length] > 110){
+        str = [str substringToIndex:110];
+    }
     if(onFacebook)
-        onFacebook(self, [[NSString stringWithFormat:@"%@\n%@", coco.name, coco.excerpt]  substringToIndex:110], coco.url);
+        onFacebook(self, str, coco.url);
 }
 
 -(void) toKeiro{

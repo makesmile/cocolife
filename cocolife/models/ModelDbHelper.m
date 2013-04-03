@@ -130,9 +130,22 @@ static ModelDbHelper* instance;
         }
     }
     
+    [self updateTable];
+    
     [FMBaseDb commit];
     [FMBaseDb close];
     
+}
+
+-(void) updateTable{
+    // venderId 追加
+    FMDatabase* db = [FMBaseDb getDb];
+    NSString* checkSql = @"SELECT vender_id FROM fb_events LIMIT 1";
+    [db executeQuery:checkSql];
+    if([FMBaseDb hasError]){
+        NSString* sql = @"ALTER TABLE fb_events ADD COLUMN vender_id TEXT";
+        [db executeUpdate:sql];
+    }
 }
 
 -(id) assignModels:(InfoList*)infoList_
@@ -182,7 +195,7 @@ static ModelDbHelper* instance;
     NSString* now = [Utils dateToString:[NSDate dateWithTimeInterval:addDay sinceDate:[NSDate date]] format:@"yyyy-MM-dd'T'HH:mm:ss"];
     NSString* query = @""
     "SELECT "
-    "    id, co_id, owner, category, name, description, image, link, start_time, end_time, updated_time, location, updated, created, new "
+    "    id, co_id, vender_id, owner, category, name, description, image, link, start_time, end_time, updated_time, location, updated, created, new "
     "    ,(SELECT address FROM co WHERE co.id = fb_events.co_id) AS address "
     "    ,(SELECT station FROM co WHERE co.id = fb_events.co_id) AS station "
     "FROM "
@@ -244,10 +257,11 @@ static ModelDbHelper* instance;
     int i = 0;
     while([resultSet next]){
         Coco* coco = [[Coco alloc] initWithResultSet:resultSet];
-        //        [cocoList add:coco];
         [cocoList replace:coco at:i];
         i++;
     }
+    
+    [cocoList removeToTail:i];
     [self mergeDetailList:cocoList];
     
     [FMBaseDb close];
@@ -348,7 +362,7 @@ static ModelDbHelper* instance;
     NSArray* updatedInfo = [infoData objectForKey:@"updated"];
     [self updateInfoList:updatedInfo];
     NSArray* deletedInfo = [infoData objectForKey:@"deleted"];
-    [self deleteCoList:deletedInfo];
+    [self deleteInfoList:deletedInfo];
     
     // events
     NSDictionary* eventData = [jsonDic objectForKey:@"fbEventData"];
@@ -413,6 +427,8 @@ static ModelDbHelper* instance;
             [FMBaseDb close];
             return;
         }
+        
+        NSLog(@"onInsert : %@", [row objectForKey:@"name"]);
         
         NSArray* details = [row objectForKey:@"details"];
         for(int j=0,jMax=[details count];j<jMax;j++){
@@ -531,7 +547,7 @@ static ModelDbHelper* instance;
 }
 
 -(void) deleteCoList:(NSArray*)deleted{
-    
+        
     for(int i=0,max=[deleted count];i<max;i++){
         NSDictionary* row = [deleted objectAtIndex:i];
         [self deleteCo:[row objectForKey:@"id"]];
@@ -552,6 +568,8 @@ static ModelDbHelper* instance;
         [FMBaseDb close];
         return;
     }
+    
+    NSLog(@"onDelete:%d", [coId intValue]);
     
     // co_detailテーブル
     [db executeUpdate:@"DELETE FROM co_details WHERE co_id = ?", coId];
@@ -591,15 +609,16 @@ static ModelDbHelper* instance;
     NSString*
     sql = [NSString stringWithFormat:@""
            "INSERT OR IGNORE INTO fb_events "
-           "  (id, co_id, owner, category, name, description, image, link, start_time, end_time, updated_time, location, updated, created, new) "
+           "  (id, co_id, vender_id, owner, category, name, description, image, link, start_time, end_time, updated_time, location, updated, created, new) "
            "VALUES "
-           "  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+           "  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
            ];
     for(int i=0,max=[created count];i<max;i++){
         NSDictionary* row = [created objectAtIndex:i];
         [db executeUpdate:sql
          , [row objectForKey:@"id"]
          , [row objectForKey:@"co_id"]
+         , [row objectForKey:@"vender_id"]
          , [row objectForKey:@"owner"]
          , [row objectForKey:@"category"]
          , [row objectForKey:@"name"]
@@ -634,7 +653,7 @@ static ModelDbHelper* instance;
     NSString* sql;
     sql = [NSString stringWithFormat:@""
            "UPDATE fb_events SET "
-           "    owner = ?, category = ?, name = ?, description = ?, image = ?, link = ?, start_time = ?, "
+           "    vender_id = ?, owner = ?, category = ?, name = ?, description = ?, image = ?, link = ?, start_time = ?, "
            "    end_time = ?, updated_time = ?, location = ?, updated = ?, new = ? "
            "WHERE "
            "  id = ?"
@@ -642,6 +661,7 @@ static ModelDbHelper* instance;
     for(int i=0,max=[updated count];i<max;i++){
         NSDictionary* row = [updated objectAtIndex:i];
         [db executeUpdate:sql
+         , [row objectForKey:@"vender_id"]
          , [row objectForKey:@"owner"]
          , [row objectForKey:@"category"]
          , [row objectForKey:@"name"]

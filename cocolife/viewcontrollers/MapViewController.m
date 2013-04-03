@@ -101,6 +101,8 @@ fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6
 
 -(void) showPaper{
     
+    NSLog(@"showPaper----");
+    
     CGRect fromFrame = mapPaperView.frame;
     fromFrame.origin.y = mapView_.frame.size.height;
     mapPaperView.frame = fromFrame;

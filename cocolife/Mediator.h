@@ -29,6 +29,7 @@
 #import "SerialExecutor.h"
 #import "URLLoadCommand.h"
 #import "BlockCommand.h"
+#import "FbEventFeedComand.h"
 
 // controllers
 #import "NavigationController.h"
@@ -39,6 +40,7 @@
 
 // venders
 #import "CocoModalPanel.h"
+#import "GAI.h"
 
 @interface Mediator : BasicMediator{
     
@@ -67,6 +69,8 @@
     // controllers TODO インスタンス変数に取っとかないと消える。 ARCノシヨウ？そんなことは
     TabBarController* tabBarController;
     NavigationController* favoritNavigationController;
+    id<GAITracker> tracker;
+    
 }
 
 @end

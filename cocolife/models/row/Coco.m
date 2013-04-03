@@ -31,6 +31,9 @@
 -(void) setParams:(FMResultSet *)resultSet{
     name = [resultSet stringForColumn:@"name"];
     excerpt = [resultSet stringForColumn:@"excerpt"];
+    if(excerpt == nil){
+        excerpt = @"";
+    }
     description = [resultSet stringForColumn:@"description"];
     hour = [resultSet stringForColumn:@"hour"];
     price = [resultSet stringForColumn:@"price"];

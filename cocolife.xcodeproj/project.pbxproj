@@ -12,6 +12,8 @@
 		7B07869A16F0331300E3C801 /* CocoModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B07869916F0331200E3C801 /* CocoModalPanel.m */; };
 		7B07869D16F0336C00E3C801 /* PopupInnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B07869C16F0336C00E3C801 /* PopupInnerView.m */; };
 		7B0786A016F0500E00E3C801 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B07869F16F04FEC00E3C801 /* LoadingViewController.m */; };
+		7B20EF3A16FD9456003E18E1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B20EF3916FD9456003E18E1 /* Accounts.framework */; };
+		7B20EF3C16FD949F003E18E1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B20EF3B16FD949F003E18E1 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B6B1C3516EEC23F004089F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6B1C3416EEC23F004089F4 /* UIKit.framework */; };
 		7B6B1C3716EEC23F004089F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6B1C3616EEC23F004089F4 /* Foundation.framework */; };
 		7B6B1C3916EEC23F004089F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6B1C3816EEC23F004089F4 /* CoreGraphics.framework */; };
@@ -38,6 +40,18 @@
 		7B6B1D9016EEC8E4004089F4 /* Notify.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B1D7F16EEC779004089F4 /* Notify.m */; };
 		7B6B1D9316EECEA6004089F4 /* ModelDbHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B1D9216EECEA6004089F4 /* ModelDbHelper.m */; };
 		7BB6460B16F153EF00CD6C43 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BB6460A16F153EF00CD6C43 /* GoogleMaps.bundle */; };
+		7BBE7373170270A300557220 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBE7371170270A300557220 /* libGoogleAnalytics.a */; };
+		7BBE73771702BA8D00557220 /* FbEventFeedComand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE73761702BA8D00557220 /* FbEventFeedComand.m */; };
+		7BBE737A1702BAD200557220 /* FbEventUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE73791702BAD200557220 /* FbEventUser.m */; };
+		7BBE737D1702BAF100557220 /* FbEventUserList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE737C1702BAF100557220 /* FbEventUserList.m */; };
+		7BBE73801702D58900557220 /* hukidashi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE737E1702D58900557220 /* hukidashi@2x.png */; };
+		7BBE73811702D58900557220 /* hukidasiLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE737F1702D58900557220 /* hukidasiLarge@2x.png */; };
+		7BBE73841702D5D300557220 /* EventFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE73831702D5D300557220 /* EventFeedView.m */; };
+		7BBE73871702D77B00557220 /* EventFeedViewRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE73861702D77B00557220 /* EventFeedViewRow.m */; };
+		7BBE73891702F7EF00557220 /* detailBgAll@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE73881702F7EE00557220 /* detailBgAll@2x.png */; };
+		7BBE738B1703017000557220 /* hukidasiArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE738A1703016F00557220 /* hukidasiArrow@2x.png */; };
+		7BBE738E170301D000557220 /* EventTalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE738D170301CF00557220 /* EventTalkView.m */; };
+		7BBE7391170312C100557220 /* UserHukidasi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE7390170312C100557220 /* UserHukidasi.m */; };
 		7BCB5D1516F0C50100A2D8D7 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0116F0C50100A2D8D7 /* UIView+JMNoise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7BCB5D1616F0C50100A2D8D7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0316F0C50100A2D8D7 /* close.png */; };
 		7BCB5D1716F0C50100A2D8D7 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB5D0416F0C50100A2D8D7 /* close@2x.png */; };
@@ -253,6 +267,8 @@
 		7B07869C16F0336C00E3C801 /* PopupInnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupInnerView.m; sourceTree = "<group>"; };
 		7B07869E16F04FEC00E3C801 /* LoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		7B07869F16F04FEC00E3C801 /* LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		7B20EF3916FD9456003E18E1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		7B20EF3B16FD949F003E18E1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7B6B1C3116EEC23F004089F4 /* cocolife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocolife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6B1C3416EEC23F004089F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B6B1C3616EEC23F004089F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -295,6 +311,31 @@
 		7B6B1D9116EECEA6004089F4 /* ModelDbHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelDbHelper.h; sourceTree = "<group>"; };
 		7B6B1D9216EECEA6004089F4 /* ModelDbHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelDbHelper.m; sourceTree = "<group>"; };
 		7BB6460A16F153EF00CD6C43 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		7BBE736C170270A300557220 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		7BBE736D170270A300557220 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		7BBE736E170270A300557220 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		7BBE736F170270A300557220 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		7BBE7370170270A300557220 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		7BBE7371170270A300557220 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		7BBE7372170270A300557220 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		7BBE73751702BA8D00557220 /* FbEventFeedComand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbEventFeedComand.h; sourceTree = "<group>"; };
+		7BBE73761702BA8D00557220 /* FbEventFeedComand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbEventFeedComand.m; sourceTree = "<group>"; };
+		7BBE73781702BAD200557220 /* FbEventUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbEventUser.h; sourceTree = "<group>"; };
+		7BBE73791702BAD200557220 /* FbEventUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbEventUser.m; sourceTree = "<group>"; };
+		7BBE737B1702BAF100557220 /* FbEventUserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbEventUserList.h; sourceTree = "<group>"; };
+		7BBE737C1702BAF100557220 /* FbEventUserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbEventUserList.m; sourceTree = "<group>"; };
+		7BBE737E1702D58900557220 /* hukidashi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hukidashi@2x.png"; sourceTree = "<group>"; };
+		7BBE737F1702D58900557220 /* hukidasiLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hukidasiLarge@2x.png"; sourceTree = "<group>"; };
+		7BBE73821702D5D300557220 /* EventFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFeedView.h; sourceTree = "<group>"; };
+		7BBE73831702D5D300557220 /* EventFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventFeedView.m; sourceTree = "<group>"; };
+		7BBE73851702D77B00557220 /* EventFeedViewRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFeedViewRow.h; sourceTree = "<group>"; };
+		7BBE73861702D77B00557220 /* EventFeedViewRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventFeedViewRow.m; sourceTree = "<group>"; };
+		7BBE73881702F7EE00557220 /* detailBgAll@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detailBgAll@2x.png"; sourceTree = "<group>"; };
+		7BBE738A1703016F00557220 /* hukidasiArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hukidasiArrow@2x.png"; sourceTree = "<group>"; };
+		7BBE738C170301CF00557220 /* EventTalkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTalkView.h; sourceTree = "<group>"; };
+		7BBE738D170301CF00557220 /* EventTalkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTalkView.m; sourceTree = "<group>"; };
+		7BBE738F170312C000557220 /* UserHukidasi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHukidasi.h; sourceTree = "<group>"; };
+		7BBE7390170312C100557220 /* UserHukidasi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHukidasi.m; sourceTree = "<group>"; };
 		7BCB5D0016F0C50100A2D8D7 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
 		7BCB5D0116F0C50100A2D8D7 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
 		7BCB5D0316F0C50100A2D8D7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
@@ -584,6 +625,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B20EF3C16FD949F003E18E1 /* AdSupport.framework in Frameworks */,
+				7B20EF3A16FD9456003E18E1 /* Accounts.framework in Frameworks */,
 				7B07869716F0092F00E3C801 /* Social.framework in Frameworks */,
 				7BD3D30E16EF50B40073970C /* QuartzCore.framework in Frameworks */,
 				7BD3D30C16EF50AE0073970C /* OpenGLES.framework in Frameworks */,
@@ -606,6 +649,7 @@
 				7B6B1C3916EEC23F004089F4 /* CoreGraphics.framework in Frameworks */,
 				7BCB5D5516F0C88F00A2D8D7 /* libAdStir.a in Frameworks */,
 				7BCB5D5716F0C88F00A2D8D7 /* GoogleMaps.framework in Frameworks */,
+				7BBE7373170270A300557220 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +659,8 @@
 		7B6B1C2816EEC23F004089F4 = {
 			isa = PBXGroup;
 			children = (
+				7B20EF3B16FD949F003E18E1 /* AdSupport.framework */,
+				7B20EF3916FD9456003E18E1 /* Accounts.framework */,
 				7BB6460916F153EF00CD6C43 /* Resources */,
 				7B07869616F0092F00E3C801 /* Social.framework */,
 				7BD3D30D16EF50B40073970C /* QuartzCore.framework */,
@@ -695,6 +741,8 @@
 		7B6B1D6D16EEC667004089F4 /* commands */ = {
 			isa = PBXGroup;
 			children = (
+				7BBE73751702BA8D00557220 /* FbEventFeedComand.h */,
+				7BBE73761702BA8D00557220 /* FbEventFeedComand.m */,
 			);
 			path = commands;
 			sourceTree = "<group>";
@@ -726,6 +774,8 @@
 				7B6B1D8A16EEC86E004089F4 /* NotifyList.m */,
 				7B6B1D9116EECEA6004089F4 /* ModelDbHelper.h */,
 				7B6B1D9216EECEA6004089F4 /* ModelDbHelper.m */,
+				7BBE737B1702BAF100557220 /* FbEventUserList.h */,
+				7BBE737C1702BAF100557220 /* FbEventUserList.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -784,6 +834,14 @@
 				7B07869916F0331200E3C801 /* CocoModalPanel.m */,
 				7B07869B16F0336C00E3C801 /* PopupInnerView.h */,
 				7B07869C16F0336C00E3C801 /* PopupInnerView.m */,
+				7BBE73821702D5D300557220 /* EventFeedView.h */,
+				7BBE73831702D5D300557220 /* EventFeedView.m */,
+				7BBE73851702D77B00557220 /* EventFeedViewRow.h */,
+				7BBE73861702D77B00557220 /* EventFeedViewRow.m */,
+				7BBE738C170301CF00557220 /* EventTalkView.h */,
+				7BBE738D170301CF00557220 /* EventTalkView.m */,
+				7BBE738F170312C000557220 /* UserHukidasi.h */,
+				7BBE7390170312C100557220 /* UserHukidasi.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -801,6 +859,8 @@
 				7B6B1D7D16EEC779004089F4 /* Info.m */,
 				7B6B1D7E16EEC779004089F4 /* Notify.h */,
 				7B6B1D7F16EEC779004089F4 /* Notify.m */,
+				7BBE73781702BAD200557220 /* FbEventUser.h */,
+				7BBE73791702BAD200557220 /* FbEventUser.m */,
 			);
 			path = row;
 			sourceTree = "<group>";
@@ -814,9 +874,32 @@
 			path = "../../../../../libs/iphone/GoogleMaps-iOS-1.1.1/GoogleMaps.framework/Versions/A/Resources";
 			sourceTree = "<group>";
 		};
+		7BBE736A170270A300557220 /* ga */ = {
+			isa = PBXGroup;
+			children = (
+				7BBE736B170270A300557220 /* Library */,
+			);
+			path = ga;
+			sourceTree = "<group>";
+		};
+		7BBE736B170270A300557220 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				7BBE736C170270A300557220 /* GAI.h */,
+				7BBE736D170270A300557220 /* GAITrackedViewController.h */,
+				7BBE736E170270A300557220 /* GAITracker.h */,
+				7BBE736F170270A300557220 /* GAITransaction.h */,
+				7BBE7370170270A300557220 /* GAITransactionItem.h */,
+				7BBE7371170270A300557220 /* libGoogleAnalytics.a */,
+				7BBE7372170270A300557220 /* libGoogleAnalytics_debug.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		7BCB5C1916F0BCBC00A2D8D7 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				7BBE736A170270A300557220 /* ga */,
 				7BDC7DDC16F1525100ECB0F2 /* jp_makesmile */,
 				7BCB5D3E16F0C88E00A2D8D7 /* adstir */,
 				7BCB5D4C16F0C88F00A2D8D7 /* GoogleMaps.framework */,
@@ -1109,6 +1192,10 @@
 		7BF6436E16EEE96C0036CBBE /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7BBE738A1703016F00557220 /* hukidasiArrow@2x.png */,
+				7BBE73881702F7EE00557220 /* detailBgAll@2x.png */,
+				7BBE737E1702D58900557220 /* hukidashi@2x.png */,
+				7BBE737F1702D58900557220 /* hukidasiLarge@2x.png */,
 				7BD3D31216EF6A840073970C /* tabShadow@2x.png */,
 				7BF6436F16EEE96C0036CBBE /* arrowButton@2x.png */,
 				7BF6437016EEE96C0036CBBE /* bar01@2x.png */,
@@ -1406,6 +1493,10 @@
 				7BCB5D5616F0C88F00A2D8D7 /* readme.txt in Resources */,
 				7BDC7E4316F1525100ECB0F2 /* README.md in Resources */,
 				7BB6460B16F153EF00CD6C43 /* GoogleMaps.bundle in Resources */,
+				7BBE73801702D58900557220 /* hukidashi@2x.png in Resources */,
+				7BBE73811702D58900557220 /* hukidasiLarge@2x.png in Resources */,
+				7BBE73891702F7EF00557220 /* detailBgAll@2x.png in Resources */,
+				7BBE738B1703017000557220 /* hukidasiArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1499,6 +1590,13 @@
 				7BDC7E4A16F1525100ECB0F2 /* BlockAlertView.m in Sources */,
 				7BDC7E4B16F1525100ECB0F2 /* BlockPickerView.m in Sources */,
 				7BDC7E4C16F1525100ECB0F2 /* ProgressAlertView.m in Sources */,
+				7BBE73771702BA8D00557220 /* FbEventFeedComand.m in Sources */,
+				7BBE737A1702BAD200557220 /* FbEventUser.m in Sources */,
+				7BBE737D1702BAF100557220 /* FbEventUserList.m in Sources */,
+				7BBE73841702D5D300557220 /* EventFeedView.m in Sources */,
+				7BBE73871702D77B00557220 /* EventFeedViewRow.m in Sources */,
+				7BBE738E170301D000557220 /* EventTalkView.m in Sources */,
+				7BBE7391170312C100557220 /* UserHukidasi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1529,7 +1627,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yu kawase (UP6FD9KBW6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu kawase (UP6FD9KBW6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1542,9 +1641,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "00F37A14-E694-4654-912F-81E763DCBCD5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00F37A14-E694-4654-912F-81E763DCBCD5";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -1560,22 +1662,25 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yu kawase";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "595357F1-C05E-4661-A2CE-9AB1CF14A4C2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
 		7B6B1C4F16EEC23F004089F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu kawase (UP6FD9KBW6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../libs/iphone\"",
@@ -1590,12 +1695,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../libs/iphone/adstir\"",
 					"\"$(SRCROOT)/cocolife/lib/adstir\"",
+					"\"$(SRCROOT)/cocolife/lib/ga/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00F37A14-E694-4654-912F-81E763DCBCD5";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1604,6 +1711,7 @@
 		7B6B1C5016EEC23F004089F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: yu kawase";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../libs/iphone\"",
@@ -1618,12 +1726,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../libs/iphone/adstir\"",
 					"\"$(SRCROOT)/cocolife/lib/adstir\"",
+					"\"$(SRCROOT)/cocolife/lib/ga/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "595357F1-C05E-4661-A2CE-9AB1CF14A4C2";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

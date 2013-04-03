@@ -25,6 +25,7 @@
     NSString* location;
     NSString* updated;
     NSString* created;
+    NSString* venderId;
     BOOL isNew;
     
     // outer
@@ -50,6 +51,7 @@
 @property NSString* created;
 @property NSString* address;
 @property NSString* station;
+@property NSString* venderId;
 
 
 -(NSString*) getStartTimeString;

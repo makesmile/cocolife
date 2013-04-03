@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocolife/Mediator.m"
-         timestampString = "384875210.325279"
+         timestampString = "386498635.008837"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
          landmarkName = "-assignCallback"
          landmarkType = "5">
       </FileBreakpoint>

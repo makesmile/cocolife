@@ -25,6 +25,7 @@
 @synthesize created;
 @synthesize address;
 @synthesize station;
+@synthesize venderId;
 
 -(void) setParams:(FMResultSet *)resultSet{
     coId = [resultSet intForColumn:@"co_id"];
@@ -43,6 +44,7 @@
     isNew = ([resultSet intForColumn:@"new"] == 1);
     address = [resultSet stringForColumn:@"address"];
     station = [resultSet stringForColumn:@"station"];
+    venderId = [resultSet stringForColumn:@"vender_id"];
     
     startDate = [Utils stringToDate:self.startTime format:@"yyyy-MM-dd'T'HH:mm:ss"];
     endDate = [Utils stringToDate:self.endTime format:@"yyyy-MM-dd'T'HH:mm:ss"];
